@@ -17,6 +17,11 @@ public class Words : MonoBehaviour
         GameManager.OnStateChanged += OnStateChanged;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.OnStateChanged -= OnStateChanged;
+    }
+
     private void OnStateChanged(GameState state)
     {
         if(state == GameState.GeneratingWord)

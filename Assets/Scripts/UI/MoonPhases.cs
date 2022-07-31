@@ -11,6 +11,12 @@ public class MoonPhases : MonoBehaviour
         GameManager.OnGuess += UpdateMoonPhases;
     }
 
+    private void OnDestroy()
+    {
+        GameManager.OnStateChanged -= OnStateChanged;
+        GameManager.OnGuess -= UpdateMoonPhases;
+    }
+
     private void OnStateChanged(GameState newState)
     {
         if (newState == GameState.Restarting)

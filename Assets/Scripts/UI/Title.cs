@@ -9,6 +9,12 @@ public class Title : MonoBehaviour
     {
         GameManager.OnStateChanged += OnStateChanged;
     }
+
+    private void OnDestroy()
+    {
+        GameManager.OnStateChanged -= OnStateChanged;
+    }
+
     private void Update()
     {
         if (GameManager.instance.state == GameState.Restarting)
